@@ -1,13 +1,13 @@
 const Joi = require( "joi" );
 const transform = require( "../../../../../../joi_to_openapi_parameter" );
 const { tilePathParams } = require( "../../../../../../common_parameters" );
-const InaturalistMapserver = require( "../../../../../../../lib/inaturalist_map_server" );
+//const InaturalistMapserver = require( "../../../../../../../lib/inaturalist_map_server" );
 
 module.exports = sendWrapper => {
   async function GET( req, res ) {
     req.params.format = "png";
     req.params.taxon_id = req.params.id;
-    await InaturalistMapserver.geomodelRoute( req, res );
+    //await InaturalistMapserver.geomodelRoute( req, res );
     sendWrapper( req, res, null, null );
   }
 
