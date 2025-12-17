@@ -3,7 +3,7 @@ const Joi = require( "joi" );
 const transform = require( "../../../../../../joi_to_openapi_parameter" );
 const observationsSearchSchema = require( "../../../../../../schema/request/observations_search" );
 const { tilePathParams } = require( "../../../../../../common_parameters" );
-const InaturalistMapserver = require( "../../../../../../../lib/inaturalist_map_server" );
+// const InaturalistMapserver = require( "../../../../../../../lib/inaturalist_map_server" );
 
 const inheritdObsSearchParams = _.filter(
   observationsSearchSchema.$_terms.keys, p => !_.includes( ["id", "fields"], p.key )
@@ -17,7 +17,7 @@ module.exports = sendWrapper => {
     req.params.style = "places";
     req.params.format = "png";
     req.params.taxon_id = req.params.id;
-    await InaturalistMapserver.taxonRangesRoute( req, res );
+    // await InaturalistMapserver.taxonRangesRoute( req, res );
     sendWrapper( req, res, null, null );
   }
 
